@@ -1,0 +1,59 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+     <div class="modal-header">
+        <h4 class="modal-title">{{title}}</h4>
+       <button type="button" class="close" (click)="close()" >&times;</button>
+     </div>
+     <div class="modal-body">
+       <form [formGroup]="myForm">
+          <div class="form-group">
+              <label for="name" class="control-label">Cutomer Name/Event Name</label>
+              <input type="text" id="name" class="form-control" formControlName="name">
+              <div *ngIf="myForm.get('name').hasError('required')">
+                  Oops, please provide a name!
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="control-label">Email-Id</label>
+              <input type="text" id="email" class="form-control" formControlName="email">
+              <div *ngIf="myForm.get('email').hasError('email')">
+                  Oops, please provide a valid email!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobileno" class="control-label">Mobile Number</label>
+                <input id="mobileno" class="form-control" formControlName="mobileno">
+                <div *ngIf="myForm.controls.mobileno.hasError('pattern')">
+                    Oops, please provide a valid mobile number !
+                  </div>
+            </div>
+         <div class="form-group">
+            <label for="r_status">Reservation Status</label>
+            <select class="form-control" formControlName="r_status" >
+                <option>----Choose option----</option>
+              <option *ngFor="let optionse of options" [selected]="eventObj.r_status === optionse.name">{{optionse.name}}</option>
+              
+            </select>
+            <div *ngIf="myForm.get('r_status').hasError('required')">
+                Oops, please provide a Reservation Status!
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="r_type">Reservation Type</label>
+              <select class="form-control" formControlName="r_type">
+                  <option>----Choose option----</option>
+                <option *ngFor="let option of optiont" [selected]="eventObj.r_type === option.name">{{option.name}}</option>
+              </select>
+              <div *ngIf="myForm.get('r_type').hasError('required')">
+                  Oops, please provide a Reservation Type!
+                </div>
+            </div>
+         
+     <div class="modal-footer">
+       <button class="btn btn-primary" *ngIf="!id" [disabled]="myForm.invalid" (click)="saveEvent()" >Save</button>
+       <button class="btn btn-primary" *ngIf="!!id" [disabled]="myForm.invalid" (click)="updateEvent()" >Update</button>
+       <button type="button" class="btn btn-default" (click)="close()" >Cancel</button>
+     </div>
+    </form>
+   </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-9" style="margin-top:10px;">
+  <daypilot-scheduler [config]="config" [events]="events" #scheduler ></daypilot-scheduler>
+  </div>
+  <div class="col-3">
+      <div class="card" style="margin-top:10px;">
+          <h3 class="card-header text-center" style="background-color: #e3f2fd;" >Reservations</h3>
+          <div class="card-block  ">
+              <ul class="list-group" >
+                  <li class="list-group-item" style="background-color: #e3f2fd;" *ngFor="let events of events">
+                    <b class="bg-success" style="margin-right:10px;"> {{events.id}} </b>
+                    <b class="bg-primary" style="margin-right:10px;">{{events.name}}</b>
+                    <b class="bg-danger"> {{events.r_status}}</b>
+                    <h6 style="margin-right:10px;"> {{events.email}}</h6>
+                    <h6> {{events.mobileno}}</h6>
+                    <b class="bg-warning">{{events.r_type}}</b> </li>
+              </ul>   
+                   
+          </div>
+        </div>
+   
+  </div>
+</div>
+ 

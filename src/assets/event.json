@@ -1,0 +1,19 @@
+[
+    {
+      "id": "1",
+      "resource": "1",
+      "start": "2018-03-05T11:00:00",
+      "end": "2018-03-05T13:00:00",
+      "text": "Scheduler Event 1"
+      
+    },
+    {
+      "id": "2",
+      "resource": "2",
+      "start": "2018-03-05T13:00:00",
+      "end": "2018-03-05T15:00:00",
+      "text": "Scheduler Event 2"
+      
+    }
+    
+  ]
